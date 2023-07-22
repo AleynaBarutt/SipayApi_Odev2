@@ -1,5 +1,7 @@
-# Sipay_AleynaBarut
-İlk hafta derste verilen ödevde  Models klasörü oluşturarak içine Person.cs classı oluşturdum ve Fluent Validation işlemlerini burada yaptım. PersonController.cs
-sayfasında ise ona uygun düzenlemeleri yaptım. 
-Restful Api geliştirin ödevi içinde aynı projeden devam ettim. Student classı oluştararak StudentController.cs classında ödevde istenen kurallara göre işlemlerimi
-yaptım.
+# Sipay_AleynaBarut CASE_2
+
+Student.cs modeli üzerinde sınıf oluşturuldu veritabanı bağlantısı ile tablolara veri girildi.StudentReponse.cs ,IStudentSevice.cs ve StudentService.cs sınıfları ile Student sınıfına ait CRUD işlemleri  ve gerekli methodlar Rest standartlarına uygun yapıldı. <br> Fake servisler geliştirilerek Dependency injection kullanıldı.
+Api de kullanılmak üzere StudentExtensions ve LoggingExtensions sınıfları Extensions klasörü altına eklendi. Projede swagger implementasyonu gerçekleştirildi. <br>
+Global loglama yapan  middleware Middleware klasörü altına  LogMiddleware.cs sınıfı olarak eklendi. LoggingExtensions sınıfı ile ILogger arayüzüne eklenildi.Bu middlewarede gelen her isteği ve giden her yanıtı loglamak için kullanılır. Yani, tüm istek ve yanıtların kaydedilmesini ve izlenmesini sağlar. ILogger arayüzünü kullanarak loglama yapar. Bu sayede uygulamanın çalışma zamanında ne tür isteklerin yapıldığını ve ne tür yanıtların döndüğünü gözlemleyebiliriz.Genellikle geliştirme ve hata ayıklama süreçlerinde kullanılır. Loglar "app.log" dosyasına yazdırır. <br>
+FakeUserDatabase sınıfı, e-posta ve şifre bilgilerini içeren bir sözlük kullanarak kullanıcı kimlik doğrulama işlemini sağlar.ValidateUser metodu, verilen e-posta ve şifreyi sözlükteki verilerle karşılaştırır ve doğrulama başarılı ise kullanıcının kimlik numarasını döndürür. <br> FakeUserAuthenticationService.cs sınıfında kullanıcı adı ve parola FakeUserDatabase'den kontrol edilir. UserController.cs  FakeAuthorizeAttribute ile bu metodun giriş yapıldığında çalışması kontrol edilir.  <br> GlobalExceptionMiddleware.cs snıfında tüm istisnaları yakalayarak özel bir işlem gerçekleştirir. Örnek olarak, istisnaları loglayabilir ve kullanıcıya uygun bir hata mesajı döndürebilir. Bu sayede uygulamanın çalışma zamanında meydana gelen istisnaları ele alabilir ve kullanıcıların daha iyi bir deneyim yaşamasını sağlayabiliriz.  Genellikle hata yönetimi ve kullanıcıya hata mesajları gönderme işlemlerinde kullanılır.
+
